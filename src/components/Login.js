@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-axios.defaults.withcredentials = true;
+axios.defaults.withCredentials = true;
 const Login = () => {
   const [formData, setFormData] = useState({});
   let headersList = {
