@@ -1,0 +1,393 @@
+/*****************constants******************/
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500&display=swap");
+$white: #ffffff;
+$black: #000000;
+$gold1: #f1b048;
+$gold2: #a36709;
+$gray0: #e6e6e6;
+$gray1: #c4c4c4;
+$gray2: #4c4c4c;
+$gold_gradient: linear-gradient(261.15deg, #f1b048 29.34%, #a36709 1023.47%);
+$gold_gradient2: linear-gradient(268.08deg, #f1b048 0%, #a36709 100%);
+$dark_gradient: linear-gradient(180deg, #000000 -40.09%, rgba(0, 0, 0, 0) 100%);
+$shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin clearInput {
+  border: none;
+  background: none;
+  outline: none;
+}
+@mixin grad-text {
+  background: linear-gradient(267.28deg, #f1b048 -27.68%, #a36709 129.01%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+* {
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Cairo", sans-serif;
+}
+body {
+  background-color: $white;
+  overflow-x: hidden;
+  direction: rtl;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background-color: $white;
+}
+::-webkit-scrollbar-thumb {
+  background: $gold2;
+}
+.btn {
+  background: $gold_gradient2;
+  box-shadow: $shadow;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+}
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  box-shadow: $shadow;
+  border-radius: 4px;
+}
+h2 {
+  @include grad-text();
+}
+.App {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  aside {
+    gap: 40px;
+    width: 20%;
+    padding: 40px 40px 40px 20px;
+    display: flex;
+    background: $white;
+    box-shadow: $shadow;
+    flex-direction: column;
+    .logo {
+      width: 100%;
+      @include centerFlex();
+      justify-content: flex-start;
+      img {
+        max-width: 50%;
+        box-shadow: none;
+      }
+    }
+    .nav-links {
+      flex: 1;
+    }
+    .nav-links a {
+      display: block;
+      padding: 10px;
+      color: #000;
+    }
+    .nav-links a.active {
+      @include grad-text();
+    }
+  }
+  main {
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+    .wrapper {
+      gap: 80px;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      .exist {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .imgs {
+          background: #fff;
+          box-shadow: $shadow;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          .img {
+            &:not(:first-of-type) {
+              padding-top: 20px;
+              border-top: 1px solid #ced4da;
+            }
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            .container {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 50px;
+              .content {
+                display: flex;
+                gap: 30px;
+                flex: 1;
+                align-items: center;
+                img {
+                  max-width: 120px;
+                }
+              }
+              .control-btn {
+                display: flex;
+                gap: 10px;
+                .edit,
+                .delete {
+                  box-shadow: $shadow;
+                  color: #fff;
+                  border: none;
+                  padding: 0 20px;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  height: fit-content;
+                }
+                .edit {
+                  background: rgb(8, 197, 8);
+                  &:hover {
+                    background: rgba(8, 197, 8, 0.8);
+                  }
+                }
+                .delete {
+                  background: rgb(231, 9, 9);
+                  &:hover {
+                    background: rgb(231, 9, 9, 0.8);
+                  }
+                }
+              }
+            }
+            form {
+              flex-direction: column;
+              gap: 20px;
+              display: none;
+              &.active {
+                display: flex;
+              }
+              .file_feild {
+                width: 100%;
+                height: 50px;
+                border-radius: 10px;
+                padding: 0 14px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #e6e6e6;
+                position: relative;
+                input[type="file"] {
+                  border: none;
+                  padding: 0;
+                  height: 40px;
+                  padding-top: 8px;
+                  width: 240px;
+                  background: none;
+                  &::-webkit-file-upload-button {
+                    cursor: pointer;
+                    border: none;
+                    background-color: $gray1;
+                    padding: 6px;
+                    color: $black;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .add-new {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        form {
+          background: #fff;
+          box-shadow: $shadow;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          .file_feild {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #e6e6e6;
+            position: relative;
+            input[type="file"] {
+              border: none;
+              padding: 0;
+              height: 40px;
+              padding-top: 8px;
+              width: 240px;
+              background: none;
+              &::-webkit-file-upload-button {
+                cursor: pointer;
+                border: none;
+                background-color: $gray1;
+                padding: 6px;
+                color: $black;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+      .servUl {
+        li {
+          display: flex;
+          gap: 10px;
+        }
+      }
+      .inputs-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        row-gap: 20px;
+      }
+    }
+  }
+}
+.lable {
+  text-transform: uppercase;
+  color: rgba(13, 27, 62, 0.7);
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+textarea,
+input {
+  display: block;
+  width: 100%;
+  min-height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+}
+.c_img {
+  width: 150px;
+  height: 150px;
+  @include centerFlex();
+  box-shadow: $shadow;
+  border-radius: 10px;
+  img {
+    max-width: 100px !important;
+    box-shadow: none;
+    object-fit: contain;
+  }
+}
+.login {
+  width: 100%;
+  direction: ltr;
+  height: 100vh;
+  @include centerFlex();
+  gap: 50px;
+  flex-direction: column;
+  h1 {
+    @include grad-text();
+    font-size: 2.7rem;
+    line-height: 100px;
+    width: 100%;
+    text-align: center;
+  }
+  form {
+    width: 40%;
+    @include centerFlex();
+    flex-direction: column;
+    gap: 30px;
+    button {
+      width: 200px;
+      height: 45px;
+      margin-top: 20px;
+      background: $gold_gradient2;
+      outline: none;
+      cursor: pointer;
+      color: $white;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+}
+table thead tr th,
+td {
+  text-align: center;
+}
+table thead tr th:nth-child(1) {
+  text-align: inherit;
+}
+table tr {
+  padding: 10px 0;
+  height: 60px;
+  a {
+    color: #2376da;
+  }
+}
+.del {
+  box-shadow: $shadow;
+  color: #fff;
+  border: none;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: fit-content;
+  background: rgb(231, 9, 9);
+  &:hover {
+    background: rgb(231, 9, 9, 0.8);
+  }
+}
+ol li {
+  margin-bottom: 5px;
+  a {
+    color: #000;
+  }
+}
