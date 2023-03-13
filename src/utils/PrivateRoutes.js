@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, redirect } from "react-router-dom";
 import axios from "axios";
 
 const PrivateRoutes = () => {
@@ -18,6 +18,7 @@ const PrivateRoutes = () => {
         });
         setAuth(_ => true);
         setLoading(_ => false);
+        return redirect('/');
       } catch (e) {
         setAuth(_ => false);
         setLoading(_ => false);
