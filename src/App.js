@@ -29,7 +29,8 @@ const App = () => {
   const [newsletter, setNewsletter] = useState([]);
   const [auth , setAuth] = useState(false)
 console.log(auth)
-  useEffect(() => {
+  
+    useEffect(() => {
     const auth = async () => {
   try{
       let {
@@ -49,11 +50,11 @@ console.log(auth)
       }
     };
     auth();
-
-
-
-
-
+      }, [auth]);
+  
+  
+  
+  useEffect(() => {
     const sliderFetch = async () => {
       let {
         data
@@ -192,7 +193,7 @@ console.log(auth)
       setNewsletter(data.body);
     };
     newsFetch();
-  }, [auth]);
+  }, []);
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
