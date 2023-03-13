@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate , useNavigate  } from "react-router-dom";
 import axios from "axios";
 
 const PrivateRoutes = () => {
   const [auth, setAuth] = useState(false);
+  const navigate = useNavigate();
   useEffect(
     () => {
       const auth = async () => {
@@ -23,6 +24,7 @@ const PrivateRoutes = () => {
             }
           );
           setAuth(_ => true);
+          navigate('/');
         } catch (e) {
           setAuth(_ => false);
           console.log(e);
