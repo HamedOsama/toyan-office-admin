@@ -1,11 +1,11 @@
 import React from "react";
 import AboutCard from "./AboutCard";
 
-const About = ({ info }) => {
+const About = ({ info=[] }) => {
   return (
     <main>
       <div className="wrapper">
-        {info.map(i => {
+        {info?.map(i => {
           return (
             <div className="exist" key={i._id}>
               <h2>
