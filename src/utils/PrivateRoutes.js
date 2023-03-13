@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {  Navigate } from "react-router-dom"; // import Redirect
+import { Outlet, Navigate } from "react-router-dom"; // import Redirect
 import axios from "axios";
 
 const PrivateRoutes = () => {
@@ -29,11 +29,7 @@ const PrivateRoutes = () => {
   if (loading === true) {
     return <p>loading------------</p>;
   } else {
-    if (auth === true) {
-      return <Navigate to="/" />;
-    } else {
-      return <Navigate to="/login" />;
-    }
+    return auth === true ? <Outlet dis="true"/> : <Navigate to="/login" />;
   }
 };
 export default PrivateRoutes;
