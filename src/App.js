@@ -16,7 +16,6 @@ import Cookies from "js-cookie";
 
 const App = () => {
   const token = Cookies.get("access_token");
-
   const [reqs, setReqs] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [apply, setApply] = useState([]);
