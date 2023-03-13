@@ -34,8 +34,11 @@ const PrivateRoutes = () => {
     },
     []
   );
-
-  return  true ? <Outlet /> : <Navigate to="/login"  />;
+  
+  if(auth)
+    return  <Outlet />
+     else 
+    return <Navigate to="/login"  />
 };
 
 export default PrivateRoutes;
