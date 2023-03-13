@@ -11,7 +11,6 @@ const Aside = () => {
     try {
       const response = await axios.post(
         "https://api.tawyanoffice.com/api/v1/admin/logout",
-        null,
         {
           headers: {
             Accept: "/",
