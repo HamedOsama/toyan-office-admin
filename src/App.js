@@ -12,12 +12,8 @@ import Services from "./components/Services";
 import { ToastContainer } from "react-toastify";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import HomepageHeader from "./components/HomepageHeader";
-//import Cookies from "js-cookie";
 
 const App = () => {
-//  const token = Cookies.get("access_token");
-//  console.log(token)
-  
   const [reqs, setReqs] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [apply, setApply] = useState([]);
@@ -27,33 +23,6 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
   const [aboutInfo, setAboutInfo] = useState([]);
   const [newsletter, setNewsletter] = useState([]);
-  const [auth , setAuth] = useState(false)
-console.log(auth)
-  
-    useEffect(() => {
-    const auth = async () => {
-  try{
-      let {
-        data
-      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/auth", {
-        Headers: {
-          Accept: "/",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-        }
-      });
-    setAuth(_ => true);
-    } catch(e){
-      setAuth(_ => false);
-      console.log(e);
-      }
-    };
-    auth();
-      }, [auth]);
-  
-  
-  
   useEffect(() => {
     const sliderFetch = async () => {
       let {
@@ -100,17 +69,14 @@ console.log(auth)
     const servicesFetch = async () => {
       let {
         data
-      } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/admin/service",
-        {
-          Headers: {
-            Accept: "/",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-          }
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/service", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
-      );
+      });
       setServices(data.data);
     };
     servicesFetch();
@@ -199,7 +165,7 @@ console.log(auth)
       <ToastContainer position="top-right" rtl={true} />
       <Aside />
       <Routes>
-        <Route element={<PrivateRoutes t={auth} />}>
+        <Route element={<PrivateRoutes />}>
           <Route
             path="/"
             element={<Home reqs={reqs} apply={apply} news={newsletter} />}
