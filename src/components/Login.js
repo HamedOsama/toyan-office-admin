@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 axios.defaults.withCredentials = true;
 const Login = () => {
@@ -26,6 +27,7 @@ const Login = () => {
       })
       .catch(err => {
         console.error(err);
+        toast.error("Incorrect Email or Password");
       });
     return <Navigate to="/" />;
   };

@@ -1,28 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import logo from "../assets/logo.png";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
 
 const Aside = () => {
-  let loc = useLocation().pathname;
-  let headersList = {
-    Accept: "/",
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-  };
-  let requestOptions = {
-    url: "https://api.tawyanoffice.com/api/v1/admin/logout",
-    method: "POST",
-    headers: headersList
-  };
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
+  const loc = useLocation().pathname;
   const handleLogOut = async () => {
-    axios.request(requestOptions).catch(() => {
-      toast.error("عذرا حدث خطا حاول مره اخرى");
-    });
-    return <Navigate to="/login" />;
+    try {
+      const response = await axios.post(
+        "https://api.tawyanoffice.com/api/v1/admin/logout",
+        null,
+        {
+          headers: {
+            Accept: "/",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        }
+      );
+      if (response.status === 200) {
+        setIsLoggedOut(true);
+      }
+    } catch (error) {
+      toast.error("عذرا حدث خطأ، حاول مرة أخرى");
+    }
   };
   if (loc !== "/login") {
     return (
@@ -56,9 +60,11 @@ const Aside = () => {
             <span onClick={handleLogOut}>تسجيل الخروج</span>
           </li>
         </ul>
+        {isLoggedOut && <Navigate to="/login" />}
       </aside>
     );
   }
+  return null;
 };
 
 export default Aside;
