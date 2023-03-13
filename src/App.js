@@ -190,7 +190,7 @@ const App = () => {
       setNewsletter(data.body);
     };
     newsFetch();
-  }, []);
+  }, [auth]);
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
