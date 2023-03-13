@@ -3,7 +3,7 @@ import Serv from "./Serv";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Services = ({ services }) => {
+const Services = ({ services = [] }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
@@ -36,7 +36,7 @@ const Services = ({ services }) => {
         <div className="exist">
           <h2>الخدمات الحالية</h2>
           <div className="imgs">
-            {services.map(ser => {
+            {services?.map(ser => {
               return <Serv service={ser} key={ser._id} id={ser._id} />;
             })}
           </div>
