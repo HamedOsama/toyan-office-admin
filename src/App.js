@@ -12,6 +12,7 @@ import Services from "./components/Services";
 import { ToastContainer } from "react-toastify";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import HomepageHeader from "./components/HomepageHeader";
+import Account from "./components/Account";
 
 const App = () => {
   const [reqs, setReqs] = useState([]);
@@ -35,7 +36,6 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
-      
       setHeader(data.body);
     };
     sliderFetch();
@@ -176,6 +176,7 @@ const App = () => {
           <Route path="/services" element={<Services services={services} />} />
           <Route path="/clients" element={<Clients clients={clients} />} />
           <Route path="/blogs" element={<Blogs blogs={blogs} />} />
+          <Route path="account" element={<Account />} />
           <Route
             path="/contact"
             element={<Contact contacts={contacts} id={contacts?._id} />}
