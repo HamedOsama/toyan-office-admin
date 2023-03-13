@@ -5,7 +5,14 @@ import { Table } from "reactstrap";
 const Home = ({ reqs, apply, news }) => {
   const handleDelete = async id => {
     axios
-      .delete(`https://api.tawyanoffice.com/api/v1/admin/request/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/request/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      })
       .then(() => {
         toast.success("تم الحذف بنجاح");
       })
@@ -15,7 +22,14 @@ const Home = ({ reqs, apply, news }) => {
   };
   const handleDelete2 = async id => {
     axios
-      .delete(`https://api.tawyanoffice.com/api/v1/admin/apply/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/apply/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      })
       .then(() => {
         toast.success("تم الحذف بنجاح");
       })

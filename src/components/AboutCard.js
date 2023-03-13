@@ -8,14 +8,23 @@ const AboutCard = ({ id, infoo }) => {
   const handleEdit = () => {
     setEdit(true);
   };
+  let headersList = {
+    Accept: "/",
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  };
+  let requestOptions = {
+    url: `https://api.tawyanoffice.com/api/v1/admin/information/${id}`,
+    method: "PATCH",
+    headers: headersList,
+    data: formData
+  };
   const handleSubmitEdits = e => {
     e.preventDefault();
     setEdit(false);
     axios
-      .patch(
-        `https://api.tawyanoffice.com/api/v1/admin/information/${id}`,
-        formData
-      )
+      .request(requestOptions)
       .then(() => {
         toast.success("تم التعديل بنجاح");
       })
@@ -63,7 +72,6 @@ const AboutCard = ({ id, infoo }) => {
               ...formData,
               title: { ...formData.title, en: e.target.value }
             })}
-            
         />
         <textarea
           placeholder="تعديل النص"

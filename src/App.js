@@ -28,64 +28,139 @@ const App = () => {
   const [newsletter, setNewsletter] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/slider"
-      );
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/slider", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
       setHeader(data.data);
     };
     sliderFetch();
     const clientsFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/clients"
-      );
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/clients", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
       setClients(data.data);
     };
     clientsFetch();
     const blogsFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/blogs"
-      );
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/blogs", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
       setBlogs(data.data);
     };
     blogsFetch();
     const servicesFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/services"
+      let {
+        data
+      } = await axios.get(
+        "https://api.tawyanoffice.com/api/v1/admin/services",
+        {
+          Headers: {
+            Accept: "/",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        }
       );
       setServices(data.data);
     };
     servicesFetch();
     const AboutFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/information"
+      let {
+        data
+      } = await axios.get(
+        "https://api.tawyanoffice.com/api/v1/admin/information",
+        {
+          Headers: {
+            Accept: "/",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        }
       );
       setAboutInfo(data.data);
     };
     AboutFetch();
     const ContactFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/contacts"
+      let {
+        data
+      } = await axios.get(
+        "https://api.tawyanoffice.com/api/v1/admin/contacts",
+        {
+          Headers: {
+            Accept: "/",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        }
       );
       setContacts(data.data);
     };
     ContactFetch();
     const requestsFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/admin/request"
-      );
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/request", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
       setReqs(data.body);
     };
     requestsFetch();
     const applyFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/admin/apply"
-      );
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/apply", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
       setApply(data.body);
     };
     applyFetch();
     const newsFetch = async () => {
-      let { data } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/admin/newsletter"
+      let {
+        data
+      } = await axios.get(
+        "https://api.tawyanoffice.com/api/v1/admin/newsletter",
+        {
+          Headers: {
+            Accept: "/",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        }
       );
       setNewsletter(data.body);
     };

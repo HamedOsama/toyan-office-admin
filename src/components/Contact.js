@@ -14,6 +14,12 @@ const Contact = ({ contacts, id }) => {
     setEdit(false);
     axios
       .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
         ...contacts,
         email: email
       })
@@ -31,8 +37,14 @@ const Contact = ({ contacts, id }) => {
     setEditTel(false);
     axios
       .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
         ...contacts,
-        mainPhone: mainPhone,
+        mainPhone: mainPhone
       })
       .then(() => {
         toast.success("تم التعديل بنجاح");
@@ -48,6 +60,12 @@ const Contact = ({ contacts, id }) => {
     setEditTel2(false);
     axios
       .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
         ...contacts,
         subPhone: subPhone
       })
@@ -65,6 +83,12 @@ const Contact = ({ contacts, id }) => {
     setAddress(false);
     axios
       .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
         ...contacts,
         address: addressInfo.address
       })

@@ -9,19 +9,27 @@ const Serv = ({ service, id }) => {
     setEdit(true);
   };
   let headersList = {
-    Accept: "/"
+    Accept: "/",
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   };
-  let reqOptions = {
+  let requestOptions = {
     url: `https://api.tawyanoffice.com/api/v1/admin/service/${id}`,
     method: "PATCH",
     headers: headersList,
     data: formData
   };
+  let requestOptionsD = {
+    url: `https://api.tawyanoffice.com/api/v1/admin/service/${id}`,
+    method: "DELETE",
+    headers: headersList
+  };
   const handleSubmitEdits = e => {
     e.preventDefault();
     setEdit(false);
     axios
-      .request(reqOptions)
+      .request(requestOptions)
       .then(() => {
         toast.success("تم التعديل بنجاح");
       })
@@ -31,7 +39,7 @@ const Serv = ({ service, id }) => {
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://api.tawyanoffice.com/api/v1/admin/service/${id}`)
+      .request(requestOptionsD)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");

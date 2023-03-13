@@ -8,29 +8,38 @@ const HeaderSlider = ({ slide, id }) => {
   const handleEdit = () => {
     setEdit(true);
   };
+  let headersList = {
+    Accept: "/",
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  };
+  let requestOptions = {
+    url: `https://api.tawyanoffice.com/api/v1/admin/slider/${id}`,
+    method: "PATCH",
+    headers: headersList,
+    data: formData
+  };
+  let requestOptionsD = {
+    url: `https://api.tawyanoffice.com/api/v1/admin/slider/${id}`,
+    method: "DELETE",
+    headers: headersList
+  };
   const handleSubmitEdits = e => {
     e.preventDefault();
     setEdit(false);
-    const reader = new FileReader();
-    reader.readAsDataURL(formData.image);
-    reader.onload = () => {
-      const imageDataUrl = reader.result;
-      axios
-        .patch(`https://api.tawyanoffice.com/api/v1/admin/slider/${id}`, {
-          image: imageDataUrl,
-          text: formData.text
-        })
-        .then(() => {
-          toast.success("تم التعديل بنجاح");
-        })
-        .catch(() => {
-          toast.error("اختار صوره اخرى بحجم اقل");
-        });
-    };
+    axios
+      .request(requestOptions)
+      .then(() => {
+        toast.success("تم التعديل بنجاح");
+      })
+      .catch(() => {
+        toast.error("اختار صوره اخرى بحجم اقل");
+      });
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://api.tawyanoffice.com/api/v1/admin/slider/${id}`)
+      .request(requestOptionsD)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");
