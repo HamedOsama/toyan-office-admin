@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 axios.defaults.withCredentials = true;
 const Login = () => {
   const [formData, setFormData] = useState({});
+  const [isLoged, setIsLoged] = useState(false);
   let headersList = {
     Accept: "/",
     "Content-Type": "application/json",
@@ -24,6 +25,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
+        setIsLoged(true);
       })
       .catch(err => {
         console.error(err);
@@ -51,6 +53,7 @@ const Login = () => {
         />
         <button type="submit">Submit</button>
       </form>
+      {isLoged && <Navigate to="/" />}
     </div>
   );
 };
