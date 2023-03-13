@@ -3,7 +3,7 @@ import Client from "./Client";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Clients = ({ clients }) => {
+const Clients = ({ clients = [] }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
@@ -36,7 +36,7 @@ const Clients = ({ clients }) => {
         <div className="exist">
           <h2>حذف او تعديل العملاء الحاليين</h2>
           <div className="imgs">
-            {clients.map(c => {
+            {clients?.map(c => {
               return <Client client={c} key={c._id} id={c._id} />;
             })}
           </div>
