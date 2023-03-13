@@ -1,7 +1,7 @@
 import React from "react";
 import AboutCard from "./AboutCard";
 
-const About = ({ info=[] }) => {
+const About = ({ info }) => {
   return (
     <main>
       <div className="wrapper">
