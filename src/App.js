@@ -35,6 +35,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
+      console.log(data.data);
       setHeader(data.data);
     };
     sliderFetch();
@@ -49,6 +50,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
+      console.log(data.data);
       setClients(data.data);
     };
     clientsFetch();
@@ -63,6 +65,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
+      console.log(data.data);
       setBlogs(data.data);
     };
     blogsFetch();
