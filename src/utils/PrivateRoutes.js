@@ -4,7 +4,7 @@ import axios from "axios";
 
 const PrivateRoutes = () => {
   const [auth, setAuth] = useState(false);
-  
+  console.log(auth)
   useEffect(
     () => {
       const auth = async () => {
