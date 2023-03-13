@@ -24,7 +24,7 @@ const PrivateRoutes = () => {
             }
           );
           setAuth(_ => true);
-          navigate('/');
+          navigate('/main');
         } catch (e) {
           setAuth(_ => false);
           console.log(e);
