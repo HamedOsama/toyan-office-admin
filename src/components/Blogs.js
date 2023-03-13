@@ -3,7 +3,7 @@ import Blog from "./Blog";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Blogs = ({ blogs }) => {
+const Blogs = ({ blogs = [] }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
@@ -36,7 +36,7 @@ const Blogs = ({ blogs }) => {
         <div className="exist">
           <h2>حذف او تعديل المقالات الحالية</h2>
           <div className="imgs">
-            {blogs.map(b => {
+            {blogs?.map(b => {
               return <Blog blog={b} key={b._id} id={b._id} />;
             })}
           </div>
