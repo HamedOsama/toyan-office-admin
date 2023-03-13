@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Blogs = ({ blogs }) => {
+  console.log(blogs)
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
