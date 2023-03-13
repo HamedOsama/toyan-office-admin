@@ -3,7 +3,7 @@ import Client from "./Client";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Clients = ({ clients = [] }) => {
+const Clients = ({ clients  }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
