@@ -40,7 +40,7 @@ const Login = () => {
         />
         <input
           required
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           onChange={e => setFormData({ ...formData, password: e.target.value })}
