@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 const Login = () => {
@@ -45,7 +46,14 @@ const Login = () => {
           placeholder="Password"
           onChange={e => setFormData({ ...formData, password: e.target.value })}
         />
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          onClick={() => {
+            return <Navigate to="/" />;
+          }}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

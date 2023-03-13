@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, Navigate, useNavigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import axios from "axios";
 
 const PrivateRoutes = () => {
-  const navigate = useNavigate();
   const [auth, setAuth] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -27,14 +26,6 @@ const PrivateRoutes = () => {
     };
     auth();
   }, []);
-  useEffect(
-    () => {
-      if (loading === false && auth === true) {
-        navigate("/", { replace: true });
-      }
-    },
-    [auth, loading, navigate]
-  );
   if (loading === true) {
     return <p>loading------------</p>;
   } else {
