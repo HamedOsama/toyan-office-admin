@@ -182,7 +182,7 @@ const App = () => {
           <Route path="/blogs" element={<Blogs blogs={blogs} />} />
           <Route
             path="/contact"
-            element={<Contact contacts={contacts} id={contacts._id} />}
+            element={<Contact contacts={contacts} id={contacts?._id} />}
           />
         </Route>
         <Route path="/login" element={<Login />} />
