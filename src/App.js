@@ -35,8 +35,8 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
-      console.log(data.data);
-      setHeader(data.data);
+      
+      setHeader(data.body);
     };
     sliderFetch();
     const clientsFetch = async () => {
@@ -50,8 +50,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
-      console.log(data.data);
-      setClients(data.data);
+      setClients(data.body);
     };
     clientsFetch();
     const blogsFetch = async () => {
@@ -65,8 +64,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
-      console.log(data.data);
-      setBlogs(data.data);
+      setBlogs(data.body);
     };
     blogsFetch();
     const servicesFetch = async () => {
@@ -80,7 +78,7 @@ const App = () => {
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }
       });
-      setServices(data.data);
+      setServices(data.body);
     };
     servicesFetch();
     const AboutFetch = async () => {
@@ -97,7 +95,7 @@ const App = () => {
           }
         }
       );
-      setAboutInfo(data.data);
+      setAboutInfo(data.body);
     };
     AboutFetch();
     const ContactFetch = async () => {
@@ -114,7 +112,7 @@ const App = () => {
           }
         }
       );
-      setContacts(data.data);
+      setContacts(data.body);
     };
     ContactFetch();
     const requestsFetch = async () => {
