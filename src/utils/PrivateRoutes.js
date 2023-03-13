@@ -27,14 +27,6 @@ const PrivateRoutes = () => {
     };
     auth();
   }, []);
-
-    useEffect(
-    () => {
-      if (auth === true) {
-        // Redirect to home page when authenticated
-        <Navigate to="/" />;
-      }
-    },[auth]);
   if (loading === true) {
     return <p>loading------------</p>;
   } else {

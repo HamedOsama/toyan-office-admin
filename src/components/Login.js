@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
-        return Navigate('/');
+        Navigate("/");
       })
       .catch(err => {
         console.error(err);
