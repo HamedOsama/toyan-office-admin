@@ -28,6 +28,7 @@ const App = () => {
   const [aboutInfo, setAboutInfo] = useState([]);
   const [newsletter, setNewsletter] = useState([]);
   const [auth , setAuth] = useState(false)
+console.log(auth)
   useEffect(() => {
     const auth = async () => {
   try{
