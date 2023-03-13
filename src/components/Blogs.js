@@ -3,7 +3,7 @@ import Blog from "./Blog";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Blogs = ({ blogs = [] }) => {
+const Blogs = ({ blogs }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
