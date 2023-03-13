@@ -23,7 +23,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
-        Navigate("/");
+        return <Navigate to="/" />;
       })
       .catch(err => {
         console.error(err);
