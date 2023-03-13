@@ -12,10 +12,12 @@ import Services from "./components/Services";
 import { ToastContainer } from "react-toastify";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import HomepageHeader from "./components/HomepageHeader";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 
 const App = () => {
-  const token = Cookies.get("access_token");
+//  const token = Cookies.get("access_token");
+//  console.log(token)
+  
   const [reqs, setReqs] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [apply, setApply] = useState([]);
@@ -25,7 +27,31 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
   const [aboutInfo, setAboutInfo] = useState([]);
   const [newsletter, setNewsletter] = useState([]);
+  const [auth , setAuth] = useState(false)
   useEffect(() => {
+    const auth = async () => {
+  try{
+      let {
+        data
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/auth", {
+        Headers: {
+          Accept: "/",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      });
+    setAuth(_ => true);
+    } catch(e){
+      console.log(e);
+      }
+    };
+    auth();
+
+
+
+
+
     const sliderFetch = async () => {
       let {
         data
@@ -170,7 +196,7 @@ const App = () => {
       <ToastContainer position="top-right" rtl={true} />
       <Aside />
       <Routes>
-        <Route element={<PrivateRoutes t={token} />}>
+        <Route element={<PrivateRoutes t={auth} />}>
           <Route
             path="/"
             element={<Home reqs={reqs} apply={apply} news={newsletter} />}
