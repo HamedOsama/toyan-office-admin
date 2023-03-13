@@ -29,6 +29,9 @@ const Aside = () => {
           <li>
             <NavLink to="/contact">معلومات الاتصال</NavLink>
           </li>
+          <li>
+          <span>الاعدادات</span>
+          </li>
         </ul>
       </aside>
     );
