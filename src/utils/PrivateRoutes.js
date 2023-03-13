@@ -8,6 +8,7 @@ const PrivateRoutes = () => {
   useEffect(
     () => {
       const auth = async () => {
+        console.log(1);
         try {
           let {
             data
@@ -23,6 +24,7 @@ const PrivateRoutes = () => {
               }
             }
           );
+          
           setAuth(_ => true);
           return redirect("/");
         } catch (e) {
