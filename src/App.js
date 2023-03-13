@@ -43,6 +43,7 @@ const App = () => {
       });
     setAuth(_ => true);
     } catch(e){
+      setAuth(_ => false);
       console.log(e);
       }
     };
