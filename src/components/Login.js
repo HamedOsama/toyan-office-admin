@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { redirect  } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 const Login = () => {
@@ -22,6 +23,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
+        redirect('/');
       })
       .catch(err => {
         console.error(err);
