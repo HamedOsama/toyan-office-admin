@@ -36,7 +36,7 @@ const HomepageHeader = ({ slides }) => {
         <div className="exist">
           <h2>حذف او تعديل العناصر الحاليه</h2>
           <div className="imgs">
-            {slides.map(slide => {
+            {slides?.map(slide => {
               return (
                 <HeaderSlider key={slide._id} id={slide._id} slide={slide} />
               );
