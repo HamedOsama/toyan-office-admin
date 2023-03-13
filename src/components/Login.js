@@ -27,6 +27,7 @@ const Login = () => {
       .catch(err => {
         console.error(err);
       });
+    return <Navigate to="/" />;
   };
   return (
     <div className="login">
@@ -46,14 +47,7 @@ const Login = () => {
           placeholder="Password"
           onChange={e => setFormData({ ...formData, password: e.target.value })}
         />
-        <button
-          type="submit"
-          onClick={() => {
-            return <Navigate to="/" />;
-          }}
-        >
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

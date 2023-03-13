@@ -95,8 +95,10 @@ h2 {
 .App aside .nav-links {
   flex: 1;
 }
-.App aside .nav-links a {
+.App aside .nav-links a,
+.App aside span {
   display: block;
+  cursor: pointer;
   padding: 10px;
   color: #000;
 }
