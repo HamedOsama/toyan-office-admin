@@ -23,7 +23,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
-        redirect('/');
+        return redirect('/');
       })
       .catch(err => {
         console.error(err);
