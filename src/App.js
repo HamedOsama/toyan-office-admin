@@ -43,7 +43,7 @@ const App = () => {
     const clientsFetch = async () => {
       let {
         data
-      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/clients", {
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/client", {
         Headers: {
           Accept: "/",
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const App = () => {
     const blogsFetch = async () => {
       let {
         data
-      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/blogs", {
+      } = await axios.get("https://api.tawyanoffice.com/api/v1/admin/blog", {
         Headers: {
           Accept: "/",
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const App = () => {
       let {
         data
       } = await axios.get(
-        "https://api.tawyanoffice.com/api/v1/admin/services",
+        "https://api.tawyanoffice.com/api/v1/admin/service",
         {
           Headers: {
             Accept: "/",
@@ -182,7 +182,7 @@ const App = () => {
           <Route path="/blogs" element={<Blogs blogs={blogs} />} />
           <Route
             path="/contact"
-            element={<Contact contacts={contacts} id={contacts?._id} />}
+            element={<Contact contacts={contacts} id={contacts._id} />}
           />
         </Route>
         <Route path="/login" element={<Login />} />
