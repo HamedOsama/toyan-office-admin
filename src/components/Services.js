@@ -3,7 +3,7 @@ import Serv from "./Serv";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Services = ({ services = [] }) => {
+const Services = ({ services }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
