@@ -25,9 +25,7 @@ const Login = () => {
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
-        setTimeout(() => {
-          setIsLoged(true);
-        }, 500);
+        setIsLoged(true);
       })
       .catch(err => {
         console.error(err);

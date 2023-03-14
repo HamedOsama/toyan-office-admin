@@ -5,6 +5,11 @@ import { toast } from "react-toastify";
 
 const Services = ({ services }) => {
   const [formData, setFormData] = useState({});
+  const [imageObject, setImageObject] = useState(null);
+  const handleImageLoad = (event) => {
+    const image = event.target;
+    setImageObject(image);
+  }
   let headersList = {
     Accept: "/",
     "Content-Type": "application/json",
@@ -15,7 +20,7 @@ const Services = ({ services }) => {
     url: "https://api.tawyanoffice.com/api/v1/admin/service",
     method: "POST",
     headers: headersList,
-    data: formData
+    data: {...formData,imageObject}
   };
   const handleSubmitNew = e => {
     e.preventDefault();
@@ -56,9 +61,7 @@ const Services = ({ services }) => {
                 name="file"
                 className="file_in"
                 accept="image/*"
-                onChange={e => {
-                  setFormData({ ...formData, image: e.target.files[0] });
-                }}
+                onChange={handleImageLoad}
               />
             </div>
             <div className="inputs-group">
