@@ -30,7 +30,8 @@ const Services = ({ services }) => {
         document.getElementById("addNewForm").reset();
         toast.success("تمت الاضافه بنجاح");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         document.getElementById("addNewForm").reset();
         toast.error("عذرا حدث خطا حاول مره اخرى");
       });
