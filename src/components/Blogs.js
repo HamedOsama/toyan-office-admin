@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 const Blogs = ({ blogs }) => {
   const [formData, setFormData] = useState({});
+  const [bloogs, setBloogs] = useState(blogs);
   let headersList = {
     Accept: "/",
     "Content-Type": "multipart/form-data",
