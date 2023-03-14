@@ -1,14 +1,14 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import Blog from "./Blog";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const Blogs = ({ blogs }) => {
   const [formData, setFormData] = useState({});
-  const [bloogs, setBloogs] = useState(blogs);
-  useEffect(() => {
-    setBloogs(blogs)
-  },[blogs])
+  // const [bloogs, setBloogs] = useState(blogs);
+  // useEffect(() => {
+  //   setBloogs(blogs)
+  // },[blogs])
   let headersList = {
     Accept: "/",
     "Content-Type": "multipart/form-data",
