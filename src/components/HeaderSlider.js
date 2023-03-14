@@ -10,7 +10,7 @@ const HeaderSlider = ({ slide, id }) => {
   };
   let headersList = {
     Accept: "/",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   };
