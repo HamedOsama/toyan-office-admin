@@ -7,6 +7,9 @@ const Services = ({ services }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
+    "Content-Type": "multipart/form-data",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   };
   let requestOptions = {
     url: "https://api.tawyanoffice.com/api/v1/admin/service",
