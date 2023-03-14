@@ -14,7 +14,7 @@ const Login = () => {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   };
   let requestOptions = {
-    url: "https://api.tawyanoffice.com/api/v1/admin",
+    url: "https://api.tawyanoffice.com/api/v1/admin/login",
     method: "POST",
     headers: headersList,
     data: formData
