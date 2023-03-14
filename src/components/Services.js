@@ -20,7 +20,7 @@ const Services = ({ services }) => {
     url: "https://api.tawyanoffice.com/api/v1/admin/service",
     method: "POST",
     headers: headersList,
-    data: {...formData,imageObject}
+    data: {...formData,image:imageObject}
   };
   const handleSubmitNew = e => {
     e.preventDefault();
