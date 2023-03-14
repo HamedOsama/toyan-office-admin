@@ -31,7 +31,6 @@ const Login = () => {
         console.error(err);
         toast.error("Incorrect Email or Password");
       });
-    return <Navigate to="/" />;
   };
   return (
     <div className="login">
