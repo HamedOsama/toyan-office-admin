@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 const Account = () => {
   const [formData, setFormData] = useState({});
-  const [isLoggedOut, setIsLoggedOut] = useState(false);
+  // const [isLoggedOut, setIsLoggedOut] = useState(false);
+  // {isLoggedOut && <Navigate to="/login" />}
   let headersList = {
     Accept: "/",
     "Content-Type": "application/json",
@@ -82,7 +83,7 @@ const Account = () => {
           </form>
         </div>
       </div>
-      {isLoggedOut && <Navigate to="/login" />}
+      
     </main>
   );
 };
