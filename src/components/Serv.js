@@ -18,7 +18,7 @@ const Serv = ({ service, id }) => {
     url: `https://api.tawyanoffice.com/api/v1/admin/service/${id}`,
     method: "PATCH",
     headers: headersList,
-    data: { ...formData, ...service }
+    data: { ...service, ...formData }
   };
   let requestOptionsD = {
     url: `https://api.tawyanoffice.com/api/v1/admin/service/${id}`,
