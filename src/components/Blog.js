@@ -18,7 +18,7 @@ export const Blog = ({ blog, id }) => {
     url: `https://api.tawyanoffice.com/api/v1/admin/blog/${id}`,
     method: "PATCH",
     headers: headersList,
-    data: formData
+    data: { ...blog, ...formData }
   };
   let requestOptionsD = {
     url: `https://api.tawyanoffice.com/api/v1/admin/blog/${id}`,

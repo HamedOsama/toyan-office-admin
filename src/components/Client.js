@@ -18,7 +18,7 @@ const Client = ({ client, id }) => {
     url: `https://api.tawyanoffice.com/api/v1/admin/client/${id}`,
     method: "PATCH",
     headers: headersList,
-    data: formData
+    data: { ...client, ...formData }
   };
   let requestOptionsD = {
     url: `https://api.tawyanoffice.com/api/v1/admin/client/${id}`,

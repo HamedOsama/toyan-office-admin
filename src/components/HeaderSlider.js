@@ -18,7 +18,7 @@ const HeaderSlider = ({ slide, id }) => {
     url: `https://api.tawyanoffice.com/api/v1/admin/slider/${id}`,
     method: "PATCH",
     headers: headersList,
-    data: formData
+    data: { ...slide, ...formData }
   };
   let requestOptionsD = {
     url: `https://api.tawyanoffice.com/api/v1/admin/slider/${id}`,
