@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-// import { Navigate } from "react-router-dom";
 
 const Account = () => {
   const [formData, setFormData] = useState({});
-  // const [isLoggedOut, setIsLoggedOut] = useState(false);
-  // {isLoggedOut && <Navigate to="/login" />}
   let headersList = {
     Accept: "/",
     "Content-Type": "application/json",
@@ -19,27 +16,8 @@ const Account = () => {
     headers: headersList,
     data: formData
   };
-  // const handleLogOut = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "https://api.tawyanoffice.com/api/v1/admin/logout",
-  //       {
-  //         headers: {
-  //           Accept: "/",
-  //           "Content-Type": "application/json",
-  //           "Access-Control-Allow-Origin": "*",
-  //           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-  //         }
-  //       }
-  //     );
-  //     if (response.status === 200) {
-  //       setIsLoggedOut(true);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  const handleEdit = () => {
+  const handleEdit = async e => {
+    e.preventDefault();
     axios
       .request(requestOptions)
       .then(() => {
@@ -83,7 +61,6 @@ const Account = () => {
           </form>
         </div>
       </div>
-      
     </main>
   );
 };

@@ -19,18 +19,18 @@ const Login = () => {
     headers: headersList,
     data: formData
   };
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     axios
       .request(requestOptions)
       .then(() => {
         localStorage.setItem("token", true);
-        setIsLoged(true);
       })
       .catch(err => {
         console.error(err);
         toast.error("Incorrect Email or Password");
       });
+    setIsLoged(true);
   };
   return (
     <div className="login">
