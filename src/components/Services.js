@@ -7,7 +7,7 @@ const Services = ({ services }) => {
   const [formData, setFormData] = useState({});
   const [imageObject, setImageObject] = useState(null);
   const handleImageLoad = (event) => {
-    const image = event.target;
+    const image = event.target.files[0];
     setImageObject(image);
   }
   let headersList = {
