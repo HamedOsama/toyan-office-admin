@@ -18,31 +18,31 @@ const Account = () => {
     headers: headersList,
     data: formData
   };
-  const handleLogOut = async () => {
-    try {
-      const response = await axios.post(
-        "https://api.tawyanoffice.com/api/v1/admin/logout",
-        {
-          headers: {
-            Accept: "/",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-          }
-        }
-      );
-      if (response.status === 200) {
-        setIsLoggedOut(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleLogOut = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       "https://api.tawyanoffice.com/api/v1/admin/logout",
+  //       {
+  //         headers: {
+  //           Accept: "/",
+  //           "Content-Type": "application/json",
+  //           "Access-Control-Allow-Origin": "*",
+  //           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  //         }
+  //       }
+  //     );
+  //     if (response.status === 200) {
+  //       setIsLoggedOut(true);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const handleEdit = () => {
     axios
       .request(requestOptions)
       .then(() => {
-        handleLogOut();
+        toast.success("Account updated successfully");
       })
       .catch(() => {
         toast.error("Please try again");
