@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Services = ({ services }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
-    Accept: "/",
+    Accept: "*/*",
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
