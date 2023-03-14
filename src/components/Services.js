@@ -98,7 +98,7 @@ const Services = ({ services }) => {
                 type="text"
                 style={{ direction: "ltr" }}
                 required
-                placeholder="Add"
+                placeholder="Add SubTitle"
                 onChange={e =>
                   setFormData({
                     ...formData,

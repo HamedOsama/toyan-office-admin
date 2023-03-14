@@ -44,7 +44,10 @@ const Account = () => {
                 setFormData({ ...formData, email: e.target.value });
               }}
             />
-            <label htmlFor="password">New Password*</label>
+            <label htmlFor="password">
+              New Password (must contain at least one capital/small letter,
+              special character and number)*
+            </label>
             <input
               type="password"
               required
